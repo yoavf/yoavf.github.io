@@ -1,0 +1,22 @@
+# Hugo default output directory
+/public/
+/resources/_gen/
+
+# Hugo build lock file
+.hugo_build.lock
+
+# macOS
+.DS_Store
+
+# WordPress legacy URLs (we don't need these)
+?\?p=*
+
+# Node modules (if you add any JS tooling later)
+node_modules/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

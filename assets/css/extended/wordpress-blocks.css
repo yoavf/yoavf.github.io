@@ -1,0 +1,390 @@
+/* WordPress Block Styles for Hugo */
+
+/* Aggressive image optimization for existing posts */
+.post-content img {
+    max-width: 100%;
+    max-height: 600px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.post-content figure {
+    max-width: 100%;
+    margin: 1rem 0;
+}
+
+/* Gallery images get thumbnail treatment */
+.blocks-gallery-item img,
+.tiled-gallery__item img {
+    max-width: 400px !important;
+    max-height: 300px !important;
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+}
+
+/* Cover block images */
+.wp-block-cover__image-background {
+    max-height: 400px !important;
+    object-fit: cover !important;
+}
+
+/* Single large images */
+.wp-block-image img {
+    max-width: 600px !important;
+    max-height: 500px !important;
+    object-fit: contain !important;
+}
+
+/* Gallery thumbnail optimization */
+.blocks-gallery-item img,
+.tiled-gallery__item img {
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.blocks-gallery-item a:hover img,
+.tiled-gallery__item a:hover img {
+    transform: scale(1.02);
+}
+
+/* Add loading indicator for images */
+.blocks-gallery-item img[src],
+.tiled-gallery__item img[src] {
+    background: #f5f5f5;
+    min-height: 150px;
+}
+
+/* Cover blocks - hero images with text overlay */
+.wp-block-cover {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 2rem 0;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.wp-block-cover__image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.wp-block-cover__gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.wp-block-cover__inner-container {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    max-width: 100%;
+}
+
+.wp-block-cover__inner-container p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.wp-block-cover-text {
+    color: white !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Gallery blocks */
+.wp-block-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    gap: 1rem;
+}
+
+.wp-block-gallery.columns-4 .blocks-gallery-item {
+    flex: 0 0 calc(25% - 0.75rem);
+}
+
+.wp-block-gallery.columns-3 .blocks-gallery-item {
+    flex: 0 0 calc(33.333% - 0.75rem);
+}
+
+.wp-block-gallery.columns-2 .blocks-gallery-item {
+    flex: 0 0 calc(50% - 0.5rem);
+}
+
+.blocks-gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+}
+
+.blocks-gallery-item {
+    margin: 0;
+    position: relative;
+}
+
+.blocks-gallery-item figure {
+    margin: 0;
+    height: 100%;
+}
+
+.blocks-gallery-item img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Tiled galleries (Jetpack) - Better layout handling */
+.wp-block-jetpack-tiled-gallery .tiled-gallery__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tiled-gallery__row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.tiled-gallery__col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tiled-gallery__item {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.tiled-gallery__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.tiled-gallery__item:hover img {
+    transform: scale(1.02);
+}
+
+/* Respect the original flex-basis percentages for asymmetric layouts */
+.tiled-gallery__col[style*="flex-basis"] {
+    flex: none;
+}
+
+.blocks-gallery-item__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white !important;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    font-weight: 300;
+}
+
+/* Responsive galleries */
+@media (max-width: 768px) {
+    .wp-block-gallery.columns-4 .blocks-gallery-item,
+    .wp-block-gallery.columns-3 .blocks-gallery-item {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .wp-block-gallery.columns-4 .blocks-gallery-item,
+    .wp-block-gallery.columns-3 .blocks-gallery-item,
+    .wp-block-gallery.columns-2 .blocks-gallery-item {
+        flex: 0 0 100%;
+    }
+}
+
+/* Image blocks */
+.wp-block-image {
+    margin: 2rem 0;
+}
+
+.wp-block-image.aligncenter {
+    text-align: center;
+}
+
+.wp-block-image figure {
+    margin: 0;
+    display: inline-block;
+}
+
+.wp-block-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wp-block-image figcaption,
+.post-content figure > figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #eee !important;
+    text-align: center;
+    font-weight: normal !important;
+}
+
+/* Separators */
+.wp-block-separator {
+    border: 0;
+    border-top: 2px solid #e0e0e0;
+    margin: 3rem auto;
+    max-width: 100px;
+}
+
+/* Lists */
+.wp-block-list {
+    padding-left: 1.5rem;
+}
+
+.wp-block-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Video embeds */
+.wp-block-video,
+.wp-block-embed {
+    margin: 2rem 0;
+}
+
+.wp-block-video video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Columns */
+.wp-block-columns {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.wp-block-column {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .wp-block-columns {
+        flex-direction: column;
+    }
+}
+
+/* Text utilities */
+.has-text-align-center {
+    text-align: center;
+}
+
+.has-text-align-right {
+    text-align: right;
+}
+
+.has-large-font-size {
+    font-size: 1.5rem;
+}
+
+.has-white-color {
+    color: white !important;
+}
+
+.has-text-color {
+    color: inherit;
+}
+
+/* Remove post-content hiding in single posts */
+.post-single .post-content {
+    display: block !important;
+}
+
+/* Recipe card styling */
+.recipe-card {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.recipe-image {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.recipe-image img {
+    max-width: 300px;
+    border-radius: 6px;
+}
+
+.recipe-meta h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.recipe-meta p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.recipe-ingredients,
+.recipe-directions {
+    margin-top: 1.5rem;
+}
+
+.recipe-ingredients h5,
+.recipe-directions h5 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.recipe-ingredients ul,
+.recipe-directions ol {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.recipe-ingredients li,
+.recipe-directions li {
+    margin-bottom: 0.5rem;
+}

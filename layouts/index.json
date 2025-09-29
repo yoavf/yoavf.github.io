@@ -1,0 +1,12 @@
+[
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- range $index, $page := $pages -}}
+{{- if gt $index 0 }},{{ end }}
+{
+  "title": {{ $page.Title | jsonify }},
+  "permalink": {{ $page.Permalink | jsonify }},
+  "summary": {{ $page.Summary | jsonify }},
+  "content": {{ $page.PlainWords | jsonify }}
+}
+{{- end -}}
+]

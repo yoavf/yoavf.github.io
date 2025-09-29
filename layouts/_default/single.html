@@ -1,0 +1,59 @@
+{{- define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-meta">
+      <time>{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{- /* Process content and optimize images using page resources */ -}}
+    {{- $content := .Content -}}
+    {{- $processedContent := $content -}}
+
+    {{- /* Find all image filenames in content */ -}}
+    {{- $imageUrls := findRE `images/[^"'\s>]+\.(jpg|jpeg|png|gif)` $content -}}
+
+    {{- range $imageUrls -}}
+      {{- $image := $.Resources.Get . -}}
+      {{- if $image -}}
+        {{- $thumbnail := $image.Fit "700x400 q80" -}}
+        {{- /* Replace image src with thumbnail */ -}}
+        {{- $oldSrc := printf `src="%s"` . -}}
+        {{- $newSrc := printf `src="%s" data-full="%s"` $thumbnail.RelPermalink $image.RelPermalink -}}
+        {{- $processedContent = replace $processedContent $oldSrc $newSrc -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- $processedContent | safeHTML }}
+  </div>
+
+  <footer class="post-footer">
+    {{- $tags := .GetTerms "tags" }}
+    {{- if $tags }}
+    <ul class="post-tags">
+      {{- range $tags }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    {{- /* Post navigation */ -}}
+    <nav class="post-nav">
+      {{- with .PrevInSection }}
+      <div class="prev-post">
+        <a href="{{ .Permalink }}" rel="prev">← {{ .Title }}</a>
+      </div>
+      {{- end }}
+      {{- with .NextInSection }}
+      <div class="next-post">
+        <a href="{{ .Permalink }}" rel="next">{{ .Title }} →</a>
+      </div>
+      {{- end }}
+    </nav>
+  </footer>
+</article>
+
+{{- end }}{{/* end main */}}

@@ -1,0 +1,11 @@
+{{- if not (.Param "hideFooter") }}
+<footer class="footer">
+    <div class="footer-content">
+        <div class="social-icons">
+            {{ range .Site.Params.socialIcons }}
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" title="{{ .name }}">{{ .name }}</a>
+            {{ end }}
+        </div>
+    </div>
+</footer>
+{{- end }}

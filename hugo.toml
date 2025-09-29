@@ -1,0 +1,101 @@
+baseURL = "https://yoav.blog/"
+languageCode = "en-us"
+title = "Hey, World"
+subtitle = " A blog by Yoav Farhi"
+theme = "PaperMod"
+summaryLength = 70
+
+[permalinks]
+  posts = "/:year/:month/:day/:slug/"
+
+[pagination]
+  pagerSize = 6
+
+[params]
+  defaultTheme = "light"
+  disableThemeToggle = true
+  ShowReadingTime = false
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = false
+  UseHugoToc = true
+  disableSpecial1stPost = true
+  disableScrollToTop = true
+  comments = false
+  hidemeta = true
+  ShowAuthor = false
+  ShowPostAuthor = false
+  hideSummary = true
+  showtoc = false
+  tocopen = false
+  mainSections = ["posts"]
+  showAllPostsOnHomePage = true
+  disableAnchoredHeadings = true
+  hideFooter = false
+  showSocialIcons = true
+  copyright = ""
+
+  [[params.socialIcons]]
+    name = "github"
+    title = "GitHub"
+    url = "https://github.com/yoavf"
+  [[params.socialIcons]]
+    name = "linkedin"
+    title = "LinkedIn"
+    url = "https://www.linkedin.com/in/yoavf/"
+
+[menu]
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 10
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[outputFormats.RSS]
+  mediatype = "application/rss+xml"
+  baseName = "feed"
+
+
+[params.cover]
+  hidden = false
+  hiddenInList = false
+  hiddenInSingle = false
+
+[params.editPost]
+  URL = ""
+  Text = "Suggest Changes"
+  appendFilePath = true
+
+[params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1000
+  threshold = 0.4
+  minMatchCharLength = 0
+  keys = ["title", "permalink", "summary", "content"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = false
+      xhtml = false
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+      wrapStandAloneImageWithinParagraph = false
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true

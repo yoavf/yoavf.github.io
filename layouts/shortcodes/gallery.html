@@ -1,0 +1,61 @@
+{{ $images := .Get "images" | split "," }}
+{{ $captions := .Get "captions" | split "," }}
+{{ $columns := .Get "columns" | default "3" }}
+
+<div class="hugo-gallery columns-{{ $columns }}">
+  {{ range $index, $image := $images }}
+    {{ $caption := "" }}
+    {{ if lt $index (len $captions) }}
+      {{ $caption = index $captions $index }}
+    {{ end }}
+    <div class="gallery-item">
+      <a href="{{ $image }}" target="_blank">
+        <img src="{{ $image }}" alt="{{ $caption }}" loading="lazy">
+        {{ if $caption }}
+          <figcaption>{{ $caption }}</figcaption>
+        {{ end }}
+      </a>
+    </div>
+  {{ end }}
+</div>
+
+<style>
+.hugo-gallery {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.hugo-gallery.columns-2 { grid-template-columns: repeat(2, 1fr); }
+.hugo-gallery.columns-3 { grid-template-columns: repeat(3, 1fr); }
+.hugo-gallery.columns-4 { grid-template-columns: repeat(4, 1fr); }
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-item figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+@media (max-width: 768px) {
+  .hugo-gallery { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+  .hugo-gallery { grid-template-columns: 1fr !important; }
+}
+</style>

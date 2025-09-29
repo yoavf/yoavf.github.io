@@ -1,0 +1,44 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $caption := .Get "caption" | default "" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $thumbWidth := .Get "thumbWidth" | default "400" -}}
+{{- $thumbHeight := .Get "thumbHeight" | default "300" -}}
+
+{{- $image := "" -}}
+{{- if hasPrefix $src "/wp-content/" -}}
+  {{- $staticPath := printf "static%s" $src -}}
+  {{- if fileExists $staticPath -}}
+    {{- $image = resources.Get (strings.TrimPrefix "/static/" $staticPath) -}}
+  {{- end -}}
+{{- else if hasPrefix $src "/" -}}
+  {{- $image = resources.Get (strings.TrimPrefix "/" $src) -}}
+{{- else -}}
+  {{- $image = resources.Get $src -}}
+{{- end -}}
+
+{{- if $image -}}
+  {{- $thumbnail := $image.Resize (printf "%sx%s webp q85" $thumbWidth $thumbHeight) -}}
+  <figure class="hugo-image {{ $class }}">
+    <a href="{{ $image.RelPermalink }}" target="_blank">
+      <img src="{{ $thumbnail.RelPermalink }}"
+           alt="{{ $alt }}"
+           loading="lazy"
+           width="{{ $thumbnail.Width }}"
+           height="{{ $thumbnail.Height }}">
+    </a>
+    {{- if $caption -}}
+      <figcaption>{{ $caption | markdownify }}</figcaption>
+    {{- end -}}
+  </figure>
+{{- else -}}
+  <!-- Fallback for images not processed by Hugo -->
+  <figure class="hugo-image {{ $class }}">
+    <a href="{{ $src }}" target="_blank">
+      <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" style="max-width: {{ $thumbWidth }}px;">
+    </a>
+    {{- if $caption -}}
+      <figcaption>{{ $caption | markdownify }}</figcaption>
+    {{- end -}}
+  </figure>
+{{- end -}}
