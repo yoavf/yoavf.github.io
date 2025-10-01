@@ -13,11 +13,11 @@ body {
     font-family: var(--main-font);
     line-height: 1.6;
     color: var(--text-color);
-    background: #fff !important;
+    background: #f0f7f0 !important;
 }
 
 .post-single {
-    background: #fff !important;
+    background: #f0f7f0 !important;
 }
 
 /* Header with title and search */
