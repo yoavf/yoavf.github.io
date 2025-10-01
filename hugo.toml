@@ -12,6 +12,7 @@ summaryLength = 70
   pagerSize = 6
 
 [params]
+  env = "production"
   defaultTheme = "light"
   disableThemeToggle = true
   ShowReadingTime = false
