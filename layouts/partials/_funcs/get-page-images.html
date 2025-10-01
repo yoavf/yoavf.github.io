@@ -1,0 +1,50 @@
+{{- $imgs := slice }}
+{{- $imgParams := .Params.images }}
+{{- $resources := .Resources.ByType "image" -}}
+
+{{/* First, check if there are any images in the page bundle (for posts with images) */}}
+{{- if not $imgParams }}
+  {{- $firstImg := index $resources 0 -}}
+  {{- with $firstImg }}
+    {{- $imgs = $imgs | append (dict
+      "Image" .
+      "RelPermalink" .RelPermalink
+      "Permalink" .Permalink) }}
+  {{- end }}
+{{- end }}
+
+{{/* Use the first one of site images as the fallback. */}}
+{{- if and (not $imgParams) (not $imgs) }}
+  {{- with site.Params.images }}
+    {{- $imgParams = first 1 . }}
+  {{- end }}
+{{- end }}
+
+{{/* Parse page's images parameter. */}}
+{{- range $imgParams }}
+  {{- $img := . }}
+  {{- $url := urls.Parse $img }}
+  {{- if eq $url.Scheme "" }}
+    {{/* Internal image. */}}
+    {{- with $resources.GetMatch $img -}}
+      {{/* Image resource. */}}
+      {{- $imgs = $imgs | append (dict
+        "Image" .
+        "RelPermalink" .RelPermalink
+        "Permalink" .Permalink) }}
+    {{- else }}
+      {{- $imgs = $imgs | append (dict
+        "RelPermalink" (relURL $img)
+        "Permalink" (absURL $img)
+      ) }}
+    {{- end }}
+  {{- else }}
+    {{/* External image */}}
+    {{- $imgs = $imgs | append (dict
+      "RelPermalink" $img
+      "Permalink" $img
+    ) }}
+  {{- end }}
+{{- end }}
+
+{{- return $imgs }}

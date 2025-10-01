@@ -70,14 +70,6 @@ body {
     text-decoration: none;
 }
 
-.logo-subtitle {
-    font-size: 14px;
-    font-weight: normal;
-    color: #666;
-    margin-left: 10px;
-    display: inline;
-}
-
 /* Main content area */
 .main {
     max-width: var(--content-width);

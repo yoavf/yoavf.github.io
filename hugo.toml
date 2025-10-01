@@ -1,7 +1,6 @@
 baseURL = "https://yoav.blog/"
 languageCode = "en-us"
-title = "Hey, World"
-subtitle = " A blog by Yoav Farhi"
+title = "yoav.blog"
 theme = "PaperMod"
 summaryLength = 70
 
@@ -13,6 +12,8 @@ summaryLength = 70
 
 [params]
   env = "production"
+  description = "A blog by Yoav Farhi"
+  images = ["/og-image.png"]
   defaultTheme = "light"
   disableThemeToggle = true
   ShowReadingTime = false
