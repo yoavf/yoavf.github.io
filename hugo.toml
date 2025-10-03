@@ -51,9 +51,13 @@ summaryLength = 70
 
 [menu]
   [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 10
+  [[menu.main]]
     name = "Search"
     url = "/search/"
-    weight = 10
+    weight = 20
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
