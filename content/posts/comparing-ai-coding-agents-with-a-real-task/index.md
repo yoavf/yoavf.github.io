@@ -10,9 +10,12 @@ activitypub_status:
 categories:
   - Dev
 tags:
-  - agents
-  - ai
   - coding
+  - ai
+  - claude code
+  - codex
+  - openhands
+  - devin
 
 ---
 I threw an issue from a side project at 6 AI tools today: [Claude Code][1], OpenAI Codex (the [CLI version][2]), [Factory.ai][3], [Devin][4], [Jules][5], and [All Hands][6].<figure class="wp-block-image size-large has-lightbox has-lightbox">

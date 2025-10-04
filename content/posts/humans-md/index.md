@@ -6,9 +6,10 @@ date: 2025-10-01T14:00:00+03:00
 categories:
   - Dev
 tags:
-  - ai
   - coding
-  - agents
+  - claude code
+  - codex
+  - writing
 
 ---
 I've been working with AI coding agents a lot lately, and learning a lot in the process. I've noticed patterns: things that work well, things that don't, and small tricks that make the whole experience better.
