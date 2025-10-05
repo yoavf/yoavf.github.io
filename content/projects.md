@@ -33,7 +33,7 @@ Notes on AI-assisted coding. Bite-sized, practical lessons from coding with AI a
 
 ---
 
-## [Pair](https://github.com/yoavf/claude-pair)
+## [Pair](https://yoav.blog/pair)
 *September 2025*
 
 A CLI utility that orchestrates coding agents working together in a pair programming session. The navigator and driver roles can each run on different providers, using the SDKs from Claude Code and opencode.
@@ -43,7 +43,7 @@ Features:
 - Multi-provider and multi-model (Claude Code, opencode)
 - Flexible model configuration per role
 
-[View on GitHub](https://github.com/yoavf/claude-pair)
+[View on GitHub](https://github.com/yoavf/pair)
 
 ---
 
@@ -52,7 +52,7 @@ Features:
 
 A scientifically rigorous tracking system for how often Claude Code validates my life choices.
 
-Tracks how many times Claude Code says "absolutely right" vs just "right" in coding sessions. Built with Rust (Axum + SQLite backend), HTML/JS frontend with hand-drawn charts, and Python scripts for collecting data from Claude Code sessions.
+Tracks how many times Claude Code says "absolutely right" vs just "right" in coding sessions. Built with Rust (Axum + SQLite backend), HTML/JS frontend with "hand-drawn" charts, and Python scripts for collecting data from Claude Code sessions.
 
 [View on GitHub](https://github.com/yoavf/absolutelyright.lol) • [Visit Site](https://absolutelyright.lol)
 
