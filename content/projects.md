@@ -9,7 +9,18 @@ hidemeta: true
 showtoc: false
 ---
 
-[AI Sessions MCP](#ai-sessions-mcp) • [humans.md](#humansmd) • [Pair](#pair) • [absolutelyright.lol](#absolutelyrightlol) • [Auto PR Screenshots](#auto-pr-screenshots)
+[aisessions.dev](#aisessionsdev) • [AI Sessions MCP](#ai-sessions-mcp) • [humans.md](#humansmd) • [Pair](#pair) • [absolutelyright.lol](#absolutelyrightlol) • [Auto PR Screenshots](#auto-pr-screenshots)
+
+---
+
+## [aisessions.dev](https://aisessions.dev)
+*October 2025*
+
+A web platform for sharing AI coding sessions with the world. Upload and publish transcripts from Claude Code, Codex, and other AI coding assistants.
+
+Built to make it easy for developers to showcase their AI-assisted development workflows, learn from each other's sessions, and share interesting coding conversations. Inspired by [Amp](https://ampcode.com)'s approach to sharing AI sessions.
+
+[View on GitHub](https://github.com/yoavf/ai-sessions) • [Visit Site](https://aisessions.dev)
 
 ---
 
