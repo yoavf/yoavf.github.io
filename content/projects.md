@@ -9,7 +9,7 @@ hidemeta: true
 showtoc: false
 ---
 
-[aisessions.dev](#aisessionsdev) • [AI Sessions MCP](#ai-sessions-mcp) • [humans.md](#humansmd) • [Pair](#pair) • [absolutelyright.lol](#absolutelyrightlol) • [Auto PR Screenshots](#auto-pr-screenshots)
+[aisessions.dev](#aisessionsdev) • [AI Sessions MCP](#ai-sessions-mcp) • [pair.guide](#pairguide) • [Pair](#pair) • [absolutelyright.lol](#absolutelyrightlol) • [Auto PR Screenshots](#auto-pr-screenshots)
 
 ---
 
@@ -35,14 +35,12 @@ Allows AI tools to search, list, and read your previous local coding sessions. U
 
 ---
 
-## [humans.md](https://humans.md)
+## [pair.guide](https://pair.guide)
 *September 2025*
 
-Notes on AI-assisted coding. Bite-sized, practical lessons from coding with AI agents like Claude Code, Codex, and others.
+Notes on pair-coding with AI (previously humans.md). Bite-sized, practical lessons from coding with AI agents like Claude Code, Codex, and others.
 
-**Note:** The site is relocating. New address coming soon.
-
-[View on GitHub](https://github.com/yoavf/humans.md)
+[View on GitHub](https://github.com/yoavf/humans.md) • [Visit Site](https://pair.guide)
 
 ---
 
