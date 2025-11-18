@@ -20,4 +20,6 @@ This led to [humans.md][1] - a collection of short, practical notes on coding wi
 
 If you're working with Claude Code or similar tools, maybe you'll find something useful. And if you have tips of your own, contributions are welcome.
 
+**Update:** The site is relocating. New address coming soon.
+
  [1]: https://humans.md

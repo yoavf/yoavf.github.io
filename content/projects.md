@@ -40,7 +40,9 @@ Allows AI tools to search, list, and read your previous local coding sessions. U
 
 Notes on AI-assisted coding. Bite-sized, practical lessons from coding with AI agents like Claude Code, Codex, and others.
 
-[View on GitHub](https://github.com/yoavf/humans.md) • [Visit Site](https://humans.md)
+**Note:** The site is relocating. New address coming soon.
+
+[View on GitHub](https://github.com/yoavf/humans.md)
 
 ---
 
