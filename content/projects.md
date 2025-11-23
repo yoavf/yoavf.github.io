@@ -22,7 +22,9 @@ A quick reference for understanding ML training metrics. Paste your log lines an
 
 Some metrics include graphs showing what healthy vs unhealthy progressions look like, helping you diagnose training runs at a glance.
 
-[Visit Site](https://metrics.help)
+<small>React · Vite · Tailwind · Hosted on GH Pages</small>
+
+[View on GitHub](https://github.com/yoavf/metrics.help) • [Visit Site](https://metrics.help)
 
 ---
 
@@ -35,7 +37,9 @@ An experiment in reinforcement learning: can a small vision-language model teach
 
 I wired up a RL loop where Qwen3-VL (8B) generated SVG illustrations of cute pets, then rated those illustrations (converted to PNGs) on various criteria. The model acts as both creator and critic, iteratively improving its output through self-evaluation.
 
-[Visit Site](https://prompet.ai)
+<small>Python · PyTorch · TRL · GPU training on RunPod · Site hosted on GH Pages.</small>
+
+[View on GitHub](https://github.com/yoavf/prompet) • [Visit Site](https://prompet.ai)
 
 ---
 
@@ -47,6 +51,8 @@ I wired up a RL loop where Qwen3-VL (8B) generated SVG illustrations of cute pet
 A web platform for sharing AI coding sessions with the world. Upload and publish transcripts from Claude Code, Codex, and other AI coding assistants.
 
 Built to make it easy for developers to showcase their AI-assisted development workflows, learn from each other's sessions, and share interesting coding conversations. Inspired by [Amp](https://ampcode.com)'s approach to sharing AI sessions.
+
+<small>Next.js · Hosting: Vercel / Neon (Postgress) / Upstash (Redis) + GCP Sensitive Data Protection</small>
 
 [View on GitHub](https://github.com/yoavf/ai-sessions) • [Visit Site](https://aisessions.dev)
 
@@ -61,6 +67,8 @@ A Model Context Protocol (MCP) server that provides access to your AI assistant 
 
 Allows AI tools to search, list, and read your previous local coding sessions. Useful for finding past solutions, reviewing recent work, learning from previous conversations, and resuming interrupted tasks.
 
+<small>Go · Releases and binary signing in GH Actions</small>
+
 [View on GitHub](https://github.com/yoavf/ai-sessions-mcp)
 
 ---
@@ -71,6 +79,8 @@ Allows AI tools to search, list, and read your previous local coding sessions. U
 <a href="https://pair.guide"><img src="https://pair.guide/og-image.png" alt="pair.guide" width="250"></a>
 
 Notes on pair-coding with AI (previously humans.md). Bite-sized, practical lessons from coding with AI agents like Claude Code, Codex, and others.
+
+<small>Hugo · Hosted on GH Pages</small>
 
 [View on GitHub](https://github.com/yoavf/humans.md) • [Visit Site](https://pair.guide)
 
@@ -88,6 +98,8 @@ Features:
 - Multi-provider and multi-model (Claude Code, opencode)
 - Flexible model configuration per role
 
+<small>TypeScript · Claude Code SDK · opencode SDK</small>
+
 [View on GitHub](https://github.com/yoavf/pair)
 
 ---
@@ -100,6 +112,8 @@ Features:
 A scientifically rigorous tracking system for how often Claude Code validates my life choices.
 
 Tracks how many times Claude Code says "absolutely right" vs just "right" in coding sessions. Built with Rust (Axum + SQLite backend), HTML/JS frontend with "hand-drawn" charts, and Python scripts for collecting data from Claude Code sessions.
+
+<small>Rust · Axum · SQLite · Python scripts · Hosting on Fly.IO</small>
 
 [View on GitHub](https://github.com/yoavf/absolutelyright.lol) • [Visit Site](https://absolutelyright.lol)
 
@@ -115,5 +129,7 @@ A GitHub Action that automatically captures and posts screenshots of your web ap
 Features:
 - Smart PR comments that update with each push
 - Simple setup with minimal configuration
+
+<small>TypeScript · GitHub Actions · Playwright</small>
 
 [View on GitHub](https://github.com/yoavf/auto-pr-screenshots-action)
