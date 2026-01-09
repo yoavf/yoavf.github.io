@@ -414,3 +414,37 @@ footer > span:last-child {
 .post-single .post-content h2 + p em {
     font-style: normal;
 }
+
+/* Footnotes - remove underlines */
+.footnote-ref,
+.footnote-backref {
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+.footnotes a {
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+/* Blockquotes - match tweet card style */
+.post-content blockquote {
+    border-left: 3px solid #1da1f2;
+    padding: 12px 16px;
+    margin: 1.5rem 0;
+    background: #f9f9f9;
+}
+
+.post-content blockquote p {
+    margin: 0 0 8px 0;
+}
+
+.post-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.post-content blockquote cite {
+    color: #666;
+    font-size: 14px;
+    font-style: normal;
+}

@@ -1,0 +1,29 @@
+{{- $user := .Get "user" -}}
+{{- $id := .Get "id" -}}
+{{- $text := .Get "text" | default "" -}}
+<blockquote class="tweet-card">
+  <p>{{ $text }}</p>
+  <a href="https://x.com/{{ $user }}/status/{{ $id }}" target="_blank" rel="noopener">
+    &mdash; @{{ $user }}
+  </a>
+</blockquote>
+
+<style>
+.tweet-card {
+  border-left: 3px solid #1da1f2;
+  padding: 12px 16px;
+  margin: 1.5rem 0;
+  background: #f9f9f9;
+}
+.tweet-card p {
+  margin: 0 0 8px 0;
+}
+.tweet-card a {
+  color: #666;
+  font-size: 14px;
+  text-decoration: none;
+}
+.tweet-card a:hover {
+  text-decoration: underline;
+}
+</style>
