@@ -9,7 +9,46 @@ hidemeta: true
 showtoc: false
 ---
 
-[metrics.help](#metricshelp) • [prompet.ai](#prompetai) • [aisessions.dev](#aisessionsdev) • [AI Sessions MCP](#ai-sessions-mcp) • [pair.guide](#pairguide) • [Pair](#pair) • [absolutelyright.lol](#absolutelyrightlol) • [Auto PR Screenshots](#auto-pr-screenshots)
+[jst](#jst) • [Continuo](#continuo) • [RingBreak](#ringbreak) • [metrics.help](#metricshelp) • [prompet.ai](#prompetai) • [aisessions.dev](#aisessionsdev) • [AI Sessions MCP](#ai-sessions-mcp) • [pair.guide](#pairguide) • [Pair](#pair) • [absolutelyright.lol](#absolutelyrightlol) • [Auto PR Screenshots](#auto-pr-screenshots)
+
+---
+
+## [jst](https://jst.sh)
+*July 2026*
+
+<a href="https://jst.sh"><img src="https://jst.sh/og.png" alt="jst" width="250"></a>
+
+A CLI that turns plain-English requests into shell commands and runs them. It shows you the command first, asks before risky operations, and includes interactive and dry-run modes.
+
+<small>Rust · OpenAI-compatible API · Fly.io · GitHub Actions</small>
+
+[View on GitHub](https://github.com/yoavf/jst) • [Visit Site](https://jst.sh)
+
+---
+
+## [Continuo](https://usecontinuo.dev)
+*July 2026*
+
+<a href="https://usecontinuo.dev"><img src="https://usecontinuo.dev/og-image.jpg" alt="Continuo" width="250"></a>
+
+A macOS menu-bar app for continuing a coding session in a different agent. Move sessions between Claude Code, Codex, and OpenCode while keeping the conversation and tool history.
+
+<small>Swift · SwiftUI · Apple Intelligence · Sparkle</small>
+
+[View on GitHub](https://github.com/yoavf/continuo) • [Visit Site](https://usecontinuo.dev)
+
+---
+
+## [RingBreak](https://ringbreak.app)
+*January 2026*
+
+<a href="https://ringbreak.app"><img src="https://ringbreak.app/public/og-image.png" alt="RingBreak" width="250"></a>
+
+A macOS menu-bar app for quick exercise breaks using a Nintendo Ring-Con. It tracks daily sessions and streaks, with optional reminders to get moving.
+
+<small>Swift · SwiftUI · macOS</small>
+
+[View on GitHub](https://github.com/yoavf/ringbreak) • [Visit Site](https://ringbreak.app)
 
 ---
 
