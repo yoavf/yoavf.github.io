@@ -1,0 +1,250 @@
+{{- $projects := slice
+  (dict "name" "jst" "date" "July 2026" "year" "2026" "description" "Plain-English requests become shell commands you can inspect, refine, and run." "image" "https://jst.sh/og.png" "site" "https://jst.sh" "github" "https://github.com/yoavf/jst" "tags" (slice "Rust" "CLI" "AI"))
+  (dict "name" "Continuo" "date" "July 2026" "year" "2026" "description" "Move a coding session between Claude Code, Codex, and OpenCode without losing the thread." "image" "https://usecontinuo.dev/og-image.jpg" "site" "https://usecontinuo.dev" "github" "https://github.com/yoavf/continuo" "tags" (slice "macOS" "Swift" "AI tools"))
+  (dict "name" "RingBreak" "date" "January 2026" "year" "2026" "description" "Quick desk exercise breaks using the Nintendo Ring-Con gathering dust in your closet." "image" "https://ringbreak.app/public/og-image.png" "site" "https://ringbreak.app" "github" "https://github.com/yoavf/ringbreak" "tags" (slice "macOS" "Swift" "Hardware"))
+  (dict "name" "metrics.help" "date" "November 2025" "year" "2025" "description" "Paste an ML training metric and get a useful explanation, with healthy and unhealthy examples." "image" "https://metrics.help/og/home.png" "site" "https://metrics.help" "github" "https://github.com/yoavf/metrics.help" "tags" (slice "React" "ML" "Reference"))
+  (dict "name" "prompet.ai" "date" "November 2025" "year" "2025" "description" "An experiment in whether a small vision-language model can teach itself to draw cute pets." "image" "https://yoavf.github.io/prompet.ai/assets/og-image.png" "site" "https://prompet.ai" "github" "https://github.com/yoavf/prompet" "tags" (slice "Python" "RL" "VLM"))
+  (dict "name" "aisessions.dev" "date" "October 2025" "year" "2025" "description" "Publish and share coding sessions from Claude Code, Codex, and other AI assistants." "image" "https://aisessions.dev/opengraph-image?9a47dc8749dd6c69" "site" "https://aisessions.dev" "github" "https://github.com/yoavf/ai-sessions" "tags" (slice "Next.js" "AI tools" "Privacy"))
+  (dict "name" "AI Sessions MCP" "date" "October 2025" "year" "2025" "description" "Search and read your previous local coding-agent sessions from whichever agent you are using now." "image" "https://repository-images.githubusercontent.com/1067867411/7942522a-4ee1-4e9c-b102-c8c7668a7f71" "site" "https://github.com/yoavf/ai-sessions-mcp" "github" "https://github.com/yoavf/ai-sessions-mcp" "tags" (slice "Go" "MCP" "Local-first"))
+  (dict "name" "pair.guide" "date" "September 2025" "year" "2025" "description" "Short, practical notes on getting better results while pair-coding with AI agents." "image" "https://pair.guide/og-image.png" "site" "https://pair.guide" "github" "https://github.com/yoavf/humans.md" "tags" (slice "Writing" "AI tools" "Hugo"))
+  (dict "name" "Pair" "date" "September 2025" "year" "2025" "description" "A CLI that puts two coding agents into navigator and driver roles." "image" "https://repository-images.githubusercontent.com/1051971878/a59fe8e3-41e6-43cf-a328-3fe3b34702d7" "site" "https://github.com/yoavf/pair" "github" "https://github.com/yoavf/pair" "tags" (slice "TypeScript" "CLI" "Agents"))
+  (dict "name" "absolutelyright.lol" "date" "September 2025" "year" "2025" "description" "A scientifically rigorous count of how often Claude Code validates my life choices." "image" "/images/projects/absolutelyright.png" "site" "https://absolutelyright.lol" "github" "https://github.com/yoavf/absolutelyright.lol" "tags" (slice "Rust" "Data" "Extremely serious"))
+  (dict "name" "Auto PR Screenshots" "date" "August 2025" "year" "2025" "description" "A GitHub Action that adds fresh screenshots of your web app to every pull request." "image" "https://opengraph.githubassets.com/e151d96d1c2a1beff6e9e1c388bc61ab6bdd4334f9dffca0fb88e1dac86e3df3/yoavf/auto-pr-screenshots-action" "site" "https://github.com/yoavf/auto-pr-screenshots-action" "github" "https://github.com/yoavf/auto-pr-screenshots-action" "tags" (slice "TypeScript" "GitHub Actions" "Playwright"))
+-}}
+
+<style>
+  body:has(.projects-timeline-page) .header,
+  body:has(.projects-timeline-page) .main {
+    max-width: 1080px;
+  }
+
+  body:has(.projects-timeline-page) .header {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  body:has(.projects-timeline-page) .header .logo {
+    margin-inline-start: 0;
+  }
+
+  body:has(.projects-timeline-page) .header #menu {
+    margin-inline-end: 0;
+  }
+
+  .projects-timeline-page {
+    --projects-ink: #111512;
+    --projects-muted: #657066;
+    --projects-line: rgba(17, 21, 18, 0.14);
+    --projects-paper: #f0f7f0;
+    width: 100%;
+    color: var(--projects-ink);
+  }
+
+  .projects-timeline-page * {
+    box-sizing: border-box;
+  }
+
+  .projects-timeline-page a {
+    color: inherit;
+  }
+
+  .projects-timeline-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 44px 0 28px;
+  }
+
+  .projects-timeline-heading h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .projects-timeline-heading span {
+    color: var(--projects-muted);
+    font-size: 13px;
+  }
+
+  .projects-timeline {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 0 36px;
+  }
+
+  .projects-timeline__year {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    padding-top: 18px;
+    color: var(--projects-muted);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .projects-timeline__group {
+    position: relative;
+    padding-left: 38px;
+    border-left: 1px solid var(--projects-line);
+  }
+
+  .timeline-project {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 32px;
+    padding: 0 0 48px;
+  }
+
+  .timeline-project::before {
+    position: absolute;
+    top: 7px;
+    left: -44px;
+    width: 11px;
+    height: 11px;
+    border: 2px solid var(--projects-paper);
+    border-radius: 50%;
+    background: var(--projects-ink);
+    box-shadow: 0 0 0 1px var(--projects-ink);
+    content: "";
+  }
+
+  .timeline-project time {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--projects-muted);
+    font-size: 12px;
+  }
+
+  .timeline-project h3 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .timeline-project p {
+    margin: 0 0 16px;
+    color: #303a32;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0 0 15px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .project-tags li {
+    padding: 4px 9px;
+    border: 1px solid var(--projects-line);
+    border-radius: 999px;
+    color: var(--projects-muted);
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+  }
+
+  .project-links a {
+    text-underline-offset: 3px;
+  }
+
+  .timeline-project__image {
+    align-self: start;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--projects-line);
+    border-radius: 10px;
+    background: #e5ebe5;
+  }
+
+  .timeline-project__image img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    transition: transform 220ms ease;
+  }
+
+  .timeline-project:hover .timeline-project__image img {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 760px) {
+    .projects-timeline-heading {
+      margin-top: 34px;
+    }
+
+    .projects-timeline {
+      grid-template-columns: 1fr;
+    }
+
+    .projects-timeline__year {
+      position: static;
+      padding: 0 0 12px;
+    }
+
+    .projects-timeline__group {
+      margin-bottom: 32px;
+      padding-left: 24px;
+    }
+
+    .timeline-project {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .timeline-project::before {
+      left: -30px;
+    }
+
+    .timeline-project__image {
+      grid-row: 1;
+    }
+  }
+</style>
+
+<section class="projects-timeline-page">
+  <div class="projects-timeline-heading">
+    <h2>Launch timeline</h2>
+  </div>
+
+  <div class="projects-timeline">
+    {{- range slice "2026" "2025" }}
+      {{- $year := . }}
+      <div class="projects-timeline__year">{{ $year }}</div>
+      <div class="projects-timeline__group">
+        {{- range where $projects "year" $year }}
+          <article class="timeline-project">
+            <div>
+              <time>{{ .date }}</time>
+              <h3><a href="{{ .site }}">{{ .name }}</a></h3>
+              <p>{{ .description }}</p>
+              <ul class="project-tags">
+                {{- range .tags }}<li>{{ . }}</li>{{ end }}
+              </ul>
+              <div class="project-links">
+                <a href="{{ .site }}">Visit ↗</a>
+                <a href="{{ .github }}">GitHub ↗</a>
+              </div>
+            </div>
+            <a class="timeline-project__image" href="{{ .site }}">
+              <img src="{{ .image }}" alt="" loading="lazy">
+            </a>
+          </article>
+        {{- end }}
+      </div>
+    {{- end }}
+  </div>
+</section>
