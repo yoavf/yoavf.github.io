@@ -106,6 +106,12 @@ body {
     margin: 0;
 }
 
+/* Avoid single-word last lines (widows) in post titles */
+.post-title,
+.entry-header h2 {
+    text-wrap: balance;
+}
+
 .post-title a,
 .entry-header h2 a {
     color: var(--text-color);
