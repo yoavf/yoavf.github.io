@@ -21,7 +21,7 @@ Here's how we did it (in half a day):
 
 ### Step 1: Prepare the data (the hard part)
 
-First, we needed training data. We couldn't train on the existing model's outputs - that's distillation, which most providers' terms of service forbid.<br>Luckily, autocomplete has a useful property: users often tell you exactly what they wanted by continuing to type. Those continuations give us real training targets, without relying on another model's output.
+First, we needed training data. Luckily, autocomplete has a useful property: users often tell you exactly what they wanted by continuing to type. Those continuations give us real training targets, without relying on another model's output.
 
 So we had ample data to begin with. It had to be cleaned up, of course: we removed <abbr title="Personally Identifiable Information">PII</abbr>, secrets, and all sorts of edge cases. 
 
@@ -53,6 +53,12 @@ The interesting bit: the new model doesn't necessarily have to produce better su
 
 **Total cost**: about $175.<br>
 **Estimated savings**: around $300,000 a year at current usage.
+
+### Gotchas
+
+- **Inference becomes your job.** In most cases you'll need to start managing it yourself: providers bill by GPU hour for your own deployment, rather than per token.
+- **No distillation shortcut.** You can't train on the existing big lab model's outputs. That's distillation, which most providers' terms of service forbid. You need data from real usage (or alternatively: distill from a larger open model with a permissive licence).
+- **Evals are half the work.** Good data isn't enough: you also need a good way to tell good output from bad. Our acceptance grader (step 4) took as much effort as the training set.
 
 
 ### What's next
