@@ -12,7 +12,7 @@ tags:
 
 Back in July 2026, Google announced they'll [retire the Gemini 2.5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) family on October 20th.
 
-At [Base44](https://base44.com) we had one last feature that was still using Gemini 2.5 Flash Lite: autocomplete in the builder, called millions of times a day. We had looked into a replacement model in the past, but nothing newer could match its latency. And for autocomplete, latency isn't a nice-to-have: suggestions that arrive late don't get seen, so higher latency = lower success rate.
+At [Base44](https://base44.com) we had one last feature that was still using Gemini 2.5 Flash Lite: autocomplete in the builder, called millions of times a day. We'd tried replacing it before, but nothing newer was fast enough. For autocomplete, a late suggestion is wasted: by the time it shows up, the user already typed past it.
 
 Fast forward a few months - the model is about to get shut down, and we don't have a good alternative yet. 
 What do we do? We train our own custom model of course!
