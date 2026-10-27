@@ -19,6 +19,9 @@ What do we do? We train our own custom model of course!
 
 Here's how we did it (in half a day):
 
+<img decoding="async" src="thanos-fine-ill-do-it-myself.jpg" alt="Thanos: Fine. I'll do it myself." width="600" style="border-radius:10px" />
+
+
 ### Step 1: Prepare the data (the hard part)
 
 First, we needed training data. Luckily, autocomplete has a useful property: users often tell you exactly what they wanted by continuing to type. Those continuations give us real training targets, without relying on another model's output.
