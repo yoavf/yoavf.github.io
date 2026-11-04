@@ -5,5 +5,8 @@
         api_host: 'https://eu.i.posthog.com',
         defaults: '2025-05-24',
         person_profiles: 'identified_only',
+        // Skip optional bundles we don't use to cut unused JS:
+        disable_surveys: true,
+        capture_performance: false,
     })
 </script>

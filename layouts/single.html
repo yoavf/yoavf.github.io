@@ -11,21 +11,31 @@
   </header>
 
   <div class="post-content md-content">
-    {{- /* Process content and optimize images using page resources */ -}}
+    {{- /* Optimize images: swap in a resized thumbnail and add intrinsic
+         width/height (plus lazy loading) so the browser can reserve space. */ -}}
     {{- $content := .Content -}}
     {{- $processedContent := $content -}}
 
-    {{- /* Find all image filenames in content */ -}}
-    {{- $imageUrls := findRE `images/[^"'\s>]+\.(jpg|jpeg|png|gif)` $content -}}
-
-    {{- range $imageUrls -}}
-      {{- $image := $.Resources.Get . -}}
-      {{- if $image -}}
-        {{- $thumbnail := $image.Fit "700x400 q80" -}}
-        {{- /* Replace image src with thumbnail */ -}}
-        {{- $oldSrc := printf `src="%s"` . -}}
-        {{- $newSrc := printf `src="%s" data-full="%s"` $thumbnail.RelPermalink $image.RelPermalink -}}
-        {{- $processedContent = replace $processedContent $oldSrc $newSrc -}}
+    {{- range (findRE `<img[^>]*>` $content) -}}
+      {{- $tag := . -}}
+      {{- $src := "" -}}
+      {{- with (findRE `\ssrc="[^"]+"` $tag) -}}
+        {{- $src = replaceRE `\ssrc="([^"]+)"` "$1" (index . 0) -}}
+      {{- end -}}
+      {{- if and $src (not (or (hasPrefix $src "http") (hasPrefix $src "//") (hasPrefix $src "data:"))) -}}
+        {{- $res := $.Resources.Get $src -}}
+        {{- if $res -}}
+          {{- $thumb := $res.Fit "700x400 q80" -}}
+          {{- $dim := printf `width="%d" height="%d"` $thumb.Width $thumb.Height -}}
+          {{- with (findRE `\swidth="[0-9]+"` $tag) -}}
+            {{- $w := int (replaceRE `[^0-9]` "" (index . 0)) -}}
+            {{- $dim = printf `height="%d"` (int (math.Round (div (mul $w $res.Height) $res.Width))) -}}
+          {{- end -}}
+          {{- $new := $tag -}}
+          {{- $new = replaceRE `\s(height|loading|decoding)="[^"]*"` "" $new -}}
+          {{- $new = replace $new (printf `src="%s"` $src) (printf `src="%s" data-full="%s" %s loading="lazy" decoding="async"` $thumb.RelPermalink $res.RelPermalink $dim) -}}
+          {{- $processedContent = replace $processedContent $tag $new -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
 
