@@ -4,7 +4,9 @@
 {{- partial "index_profile.html" . }}
 {{- else }} {{/* if not profileMode */}}
 
-{{- if not .IsHome | and .Title }}
+{{- if .IsHome }}
+<h1 class="sr-only">{{ site.Params.label.text | default site.Title }}</h1>
+{{- else if .Title }}
 <header class="page-header">
   {{- partial "breadcrumbs.html" . }}
   <h1>

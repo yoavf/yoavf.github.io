@@ -1,6 +1,6 @@
 baseURL = "https://yoav.blog/"
 languageCode = "en-us"
-title = "yoav.blog"
+title = "Yoav Farhi - yoav.blog"
 theme = "PaperMod"
 summaryLength = 70
 
@@ -12,6 +12,7 @@ summaryLength = 70
 
 [params]
   env = "production"
+  label.text = "yoav.blog"
   description = "A blog by Yoav Farhi"
   images = ["/og-image.png"]
   defaultTheme = "light"
